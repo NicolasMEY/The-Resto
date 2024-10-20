@@ -1,0 +1,99 @@
+.section2 {
+    color: $white;
+    padding-bottom: 100px;
+    position: relative;
+
+    // le & rappel que l'on est dans la section 2
+    &:after {
+        content:"";
+        position: absolute;
+        height: 620px;
+        width: 100%;
+        left: 50%;
+        background: url(../../img/imgs/bg-menu-01.jpg) center/cover;
+        bottom: -330px;
+        transform: translate(-50%, -50%);
+    }
+    h2 {
+        color: $color1;
+        font-style: 2rem;
+        font-family: $font1;
+        font-weight: 500;
+        padding: 60px 0 30px;
+    }
+    ul {
+        @include alignChildren(space-around);
+        width: 50%;
+        margin: 30px auto;
+        min-width: 500px;
+
+        @media screen and (max-width: 680px) {
+            min-width: 200px;
+            width: 90%; // quand on est trop petit il vaut mieux élargir
+            font-size: 0.75rem ;
+        }
+
+        li {
+            border-bottom: 1px solid $grey;
+            padding-bottom: 8px;
+        }
+    }
+    .meals {
+        background: $white;
+        color: $black;
+        width: 85%;
+        margin: 0 auto;
+        max-width: 800px;
+        border-top: 4px solid $color1;
+        padding: 15px 0;
+        display: grid;
+        grid-template-columns: 50% 50%;
+        z-index: 1000;
+        position: relative; // car l'image de fond est en absolute et du coups le z-index ne fonctionne que si on rajoute relative
+
+        @media screen and (max-width: 680px) {
+            grid-template-columns: 1fr;
+        }
+
+        .meal {
+            display: grid;
+            grid-template-columns: 25% 60% 15%;
+            border-bottom: 1px dashed $grey;
+            padding: 30px;
+            margin: 0 20px; // ici le margin limite le fait que le trait en bas soit continue sur toute la largeur
+
+            img {
+                border-radius: 50px;
+                object-fit: cover; // utilisé quand l'image est mise depuis une balise html
+                width: 100%;
+                align-self: center;
+            }
+
+            .meal-text {
+                text-align: left;
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                margin: 0 10px;
+                height: 100%;
+            
+            h3 {
+                text-transform: uppercase;
+                color: $black;
+                font-style: 0.8rem;
+                font-weight: bold;
+                margin-bottom: 5px;
+            }
+        }
+        > p { // le > signifie ton enfant direct et seulement lui, car il y a plusieurs p
+color: $color1;
+font-weight: 600;
+font-style: 1.1rem;
+display: grid;
+height: 100%;
+align-items: center;
+        }
+        }
+    }
+}
+
